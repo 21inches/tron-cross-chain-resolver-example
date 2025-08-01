@@ -29,12 +29,13 @@ module.exports = async function (deployer, network, accounts) {
 
     console.log("----------------------------------------------------");
     console.log("Deploying Resolver with the following arguments:");
-    console.log(`  1. LOP:             ${configs[network].lop}`);
     console.log(`  1. EscrowFactory:   ${configs[network].escrowFactory}`);
+    console.log(`  2. LOP:             ${configs[network].lop}`);
+    console.log(`  3. Initial Owner:   ${accounts}`);
     console.log("----------------------------------------------------");
 
     // Deploy the contract with the network-specific arguments
-    await deployer.deploy(Resolver, cfg.lop, cfg.escrowFactory);
+    await deployer.deploy(Resolver, cfg.lop, cfg.escrowFactory, accounts);
 
     const resolver = await Resolver.deployed();
     console.log('Resolver deployed to:', resolver.address);
