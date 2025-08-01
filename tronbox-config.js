@@ -1,9 +1,7 @@
-const path = require('path');
 require('dotenv').config();
 module.exports = {
-    contracts_directory: './contracts/src',
-    migrations_directory: './script-tron',
-    contracts_build_directory: path.join(__dirname, 'artifacts-tron'),
+    contracts_directory: './contracts',
+    migrations_directory: './migrations',
     networks: {
         mainnet: {
             privateKey: process.env.PRIVATE_KEY_TRON,
